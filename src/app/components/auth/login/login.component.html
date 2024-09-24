@@ -1,22 +1,37 @@
 <section>
   <h4>Login</h4>
-  <form class="form">
+  <form [formGroup]="loginForm" class="form">
     <div class="form-grp">
-      <input type="email" id="email" placeholder="Email Address"
-      required>
+      <input formControlName="email" [ngClass]="getFieldClass('email')"
+        type="email" id="email" placeholder="Email Address" required>
+      <div *ngIf="loginForm.get('email')?.invalid
+        && (loginForm.get('email')?.touched
+        || loginForm.get('email')?.dirty)" class="error-message">
+        {{ getErrorMessage('email') }}
+      </div>
     </div>
     <div class="form-grp">
-      <input type="password" id="password" placeholder="Password"
-      required>
+      <input formControlName="password" [ngClass]="getFieldClass('password')"
+        type="password" id="password" placeholder="Password" required>
+      <div *ngIf="loginForm.get('password')?.invalid
+         && (loginForm.get('password')?.touched
+         || loginForm.get('password')?.dirty)" class="error-viz">
+        {{ getPswdViz('password') }}
+      </div>
     </div>
+    <div *ngIf="loginForm.get('password')?.invalid
+         && (loginForm.get('password')?.touched
+         || loginForm.get('password')?.dirty)" class="error-viz-str">
+        {{ getPswdVizStr('password') }}
+      </div>
   </form>
-  <button type="button" mat-button title="login to your account">
+  <button [disabled]="loginForm.invalid" type="button" mat-button title="login to your account">
     <p>
       Login to your account
     </p>
   </button>
   <div class="footer">
-    <p> Don't have an account?</p>
+    <p>Don't have an account?</p>
     <a routerLink="/auth/signup">Sign Up</a>
   </div>
 </section>

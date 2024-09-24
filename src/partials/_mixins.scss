@@ -20,6 +20,8 @@
     flex-direction: column;
     gap: 1.5rem;
 
+
+
     .form-grp {
       display: flex;
       flex-direction: column;
@@ -37,6 +39,12 @@
         border-bottom: 1px solid $waikawagray;
         color: $white;
         padding-left: 0.75rem;
+        caret-color: $sunset-orange;
+        // caret-width: .125rem;
+
+        &.border-viz{
+          border-bottom: 1px solid $sunset-orange;
+        }
 
         &:focus {
           outline: none;

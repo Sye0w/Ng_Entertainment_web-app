@@ -3,4 +3,28 @@
 
 section{
   @include section-style(auto);
+
+  .border-viz {
+    border-bottom: 1px solid $sunset-orange;
+  }
+
+
+  .error-message ,.error-viz{
+    position: absolute;
+    font-size: 0.8rem;
+    left: 55%;
+    color: $sunset-orange;
+  }
+
+  .error-message{
+    top: 19rem;
+  }
+
+  .error-viz{
+    top: 23rem;
+  }
+
+  .error-viz-str{
+    color: $sunset-orange;
+  }
 }
