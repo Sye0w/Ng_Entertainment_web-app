@@ -5,10 +5,11 @@ import { LoginComponent } from "./components/auth/login/login.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'Ng-Entertainment_web-app';
+
 }
