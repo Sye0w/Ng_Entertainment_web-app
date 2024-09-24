@@ -1,0 +1,11 @@
+@use '../partials/variables' as *;
+
+
+body{
+  min-height: 100vh;
+  font-family: $font, system-ui;
+  font-weight: 300;
+  font-size: .9375rem !important;
+  background-color: $vulcan;
+  color: $white !important;
+}
