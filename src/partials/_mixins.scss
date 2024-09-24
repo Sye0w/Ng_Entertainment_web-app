@@ -81,4 +81,11 @@
       color: $sunset-orange;
     }
   }
+
+
+  @media(max-width: 425px){
+    width: 20.4375rem;
+    margin-bottom: 3rem;
+
+  }
 }
