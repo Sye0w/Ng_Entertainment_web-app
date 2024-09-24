@@ -1,1 +1,26 @@
-<p>sign-up works!</p>
+<section>
+  <h4>Sign Up</h4>
+  <form class="login-form">
+    <div class="form-grp">
+      <input type="email" id="email" placeholder="Email Address"
+      required>
+    </div>
+    <div class="form-grp">
+      <input type="password" id="password" placeholder="Password"
+      required>
+    </div>
+    <div class="form-grp">
+      <input type="password" id="repeat-pswd" placeholder="Repeat Password"
+      required>
+    </div>
+  </form>
+  <button type="button" mat-button title="login to your account">
+    <p>
+      Create an account
+    </p>
+  </button>
+  <div class="login-footer">
+    <p>Already have an account?</p>
+    <a routerLink="/auth/login">Login</a>
+  </div>
+</section>
