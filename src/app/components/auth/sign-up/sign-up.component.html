@@ -1,16 +1,16 @@
 <section>
   <h4>Sign Up</h4>
-  <form class="form">
+  <form class="form" [formGroup]="signUpForm">
     <div class="form-grp">
-      <input type="email" id="email" placeholder="Email Address"
+      <input formControlName="email" type="email"  placeholder="Email Address"
       required>
     </div>
     <div class="form-grp">
-      <input type="password" id="password" placeholder="Password"
+      <input formControlName="password" type="password"  placeholder="Password"
       required>
     </div>
     <div class="form-grp">
-      <input type="password" id="repeat-pswd" placeholder="Repeat Password"
+      <input formControlName="confirmPassword" type="password"  placeholder="Repeat Password"
       required>
     </div>
   </form>

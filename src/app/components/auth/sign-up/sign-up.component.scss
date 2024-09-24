@@ -2,5 +2,5 @@
 @use '../../../../partials/mixins' as *;
 
 section{
-  @include section-style(auto);
+  @include form-style(auto);
 }

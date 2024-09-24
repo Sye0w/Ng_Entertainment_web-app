@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
@@ -14,9 +14,8 @@ import { FormValidationService } from '../../../services/form-validation.service
   styleUrl: './login.component.scss'
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-\\[\\]{};\'":|,.<>\\/?]).{6,}$';
 
   constructor( private validation: FormValidationService){}
 
@@ -27,7 +26,8 @@ export class LoginComponent {
   initializeLoginForm(){
     this.loginForm = new FormGroup({
       email :  new FormControl ( '', [Validators.required,Validators.email]),
-      password : new FormControl('', [Validators.required, Validators.minLength(6), this.validation.pswdStr])
+      password : new FormControl('', [Validators.required, Validators.minLength(6),
+        this.validation.pswdStr])
     })
   }
 
