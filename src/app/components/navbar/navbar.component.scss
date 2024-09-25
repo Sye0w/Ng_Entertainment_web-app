@@ -1,0 +1,64 @@
+@use '../../../partials/variables' as *;
+
+section{
+  width: 6rem;
+  height: 93vh;
+  border-radius: 1.25rem;
+  background-color: $mirage;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .logos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 4.6875rem;
+    margin-top: 2.1875rem;
+
+    ul{
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+
+      li{
+        a{
+          &:hover{
+            svg{
+              path{
+                fill: $sunset-orange;
+              }
+            }
+          }
+          &.selected{
+            svg{
+              path{
+                fill: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .user-profile{
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 2.1875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    img{
+      border-radius: 50%;
+      border: .0625rem solid $white;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
