@@ -33,13 +33,6 @@ section{
               }
             }
           }
-          &.selected{
-            svg{
-              path{
-                fill: $white;
-              }
-            }
-          }
         }
       }
     }
@@ -59,6 +52,55 @@ section{
       border: .0625rem solid $white;
       width: 2.5rem;
       height: 2.5rem;
+    }
+  }
+}
+
+
+@media(max-width: 768px){
+  section{
+    height: 6rem;
+    width: 100%;
+    flex-direction: row;
+    .logos{
+      gap: 12rem;
+
+      padding-left: 1.5rem;
+      flex-direction: row;
+      margin-top: 0;
+      ul{
+        flex-direction: row;
+      }
+
+    }
+
+    .user-profile{
+      margin-bottom: 0;
+      padding-right: 1rem;
+     img{
+      width: 2rem;
+      height: 2rem;
+     }
+    }
+  }
+}
+
+@media (max-width: 425px){
+  section{
+    border-radius: 0;
+    .logos{
+      padding-left: 1rem;
+      gap: 4.625rem;
+
+      li{
+        width: 1rem;
+        height: 1rem;
+       svg{
+        path{
+          scale: .8;
+        }
+       }
+      }
     }
   }
 }

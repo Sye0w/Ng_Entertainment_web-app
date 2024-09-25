@@ -2,5 +2,18 @@ main{
   display: flex;
   gap: 2.25rem;
   padding: 2rem 0 0 2rem;
+}
 
+
+@media(max-width:768px){
+  main{
+    flex-direction: column;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 425px){
+  main{
+    padding: 0;
+  }
 }
