@@ -17,3 +17,6 @@ export interface IMediaItem {
   isBookmarked: boolean;
   isTrending: boolean;
 }
+
+
+

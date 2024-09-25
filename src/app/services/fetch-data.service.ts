@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 
+
 export class FetchDataService {
   private apiUrl: string = '../../assets/data.json';
 
