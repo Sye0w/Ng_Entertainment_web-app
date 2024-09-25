@@ -2,22 +2,64 @@
   <h4>Sign Up</h4>
   <form class="form" [formGroup]="signUpForm">
     <div class="form-grp">
-      <input formControlName="email" type="email"  placeholder="Email Address"
-      required>
+      <input
+        formControlName="email"
+        type="email"
+        placeholder="Email Address"
+        [ngClass]="getFieldClass('email')"
+        required>
+      <div
+        *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.touched || signUpForm.get('email')?.dirty)"
+        class="error-message"
+      >
+        {{ getEmailErrorMsg() }}
+      </div>
     </div>
     <div class="form-grp">
-      <input formControlName="password" type="password"  placeholder="Password"
-      required>
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+        [ngClass]="getFieldClass('password')"
+        required
+      />
+      <div
+        *ngIf="signUpForm.get('password')?.invalid && (signUpForm.get('password')?.touched || signUpForm.get('password')?.dirty) "
+        class="error-viz"
+      >
+        {{  getPswdErrMsg() }}
+      </div>
     </div>
     <div class="form-grp">
-      <input formControlName="confirmPassword" type="password"  placeholder="Repeat Password"
-      required>
+      <input
+        formControlName="confirmPassword"
+        type="password"
+        placeholder="Repeat Password"
+        [ngClass]="getFieldClass('confirmPassword')"
+        required
+      />
+      <div
+        *ngIf="signUpForm.get('confirmPassword')?.invalid && (signUpForm.get('confirmPassword')?.touched || signUpForm.get('confirmPassword')?.dirty)"
+        class="error-pswd-msg"
+      >
+        {{  getConfirmPswdErrMsg() }}
+      </div>
+    </div>
+    <div
+      *ngIf="signUpForm.get('password')?.errors?.['passwordStrength'] && (signUpForm.get('password')?.touched || signUpForm.get('password')?.dirty)"
+      class="error-viz-str"
+    >
+      {{ getPasswordStrengthError() }}
     </div>
   </form>
-  <button type="button" mat-button title="login to your account">
-    <p>
-      Create an account
-    </p>
+  <button
+    type="button"
+    [disabled]="signUpForm.invalid"
+    [ngClass]="{'disabled':signUpForm.invalid}"
+    mat-button
+    title="create an account"
+  >
+    <p>Create an account</p>
   </button>
   <div class="footer">
     <p>Already have an account?</p>

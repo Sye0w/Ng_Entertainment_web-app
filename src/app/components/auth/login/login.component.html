@@ -25,7 +25,7 @@
         {{ getPswdVizStr('password') }}
       </div>
   </form>
-  <button [disabled]="loginForm.invalid" type="button" mat-button title="login to your account">
+  <button  type="button" mat-button title="login to your account">
     <p>
       Login to your account
     </p>
@@ -35,3 +35,6 @@
     <a routerLink="/auth/signup">Sign Up</a>
   </div>
 </section>
+
+<!-- code snippet for form-validation add later -->
+<!-- [disabled]="loginForm.invalid" -->

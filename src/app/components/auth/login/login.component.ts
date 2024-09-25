@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormValidationService } from '../../../services/form-validation.service';
 
@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
     }
     return '';
   }
+
   getPswdViz(fieldName: string){
     const control = this.loginForm.get(fieldName);
     if(control?.errors){
