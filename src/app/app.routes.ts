@@ -49,4 +49,5 @@ export const routes: Routes = [
   //   path: '**',
   //   loadComponent: () => import('./components/not-found/not-found.component').then(mod => mod.NotFoundComponent)
   // }
+  // { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
 ];
