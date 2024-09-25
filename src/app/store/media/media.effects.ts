@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, mergeMap, withLatestFrom, switchMap } from 'rxjs/operators';
+import { catchError, map, withLatestFrom, switchMap } from 'rxjs/operators';
 import { MediaActions } from './media.actions';
 import { FetchDataService } from '../../services/fetch-data.service';
 import { selectAllMedia } from './media.selectors';
