@@ -193,3 +193,49 @@
     }
   }
 }
+
+
+@mixin circle($size: 0.1875rem, $bg-color: $white) {
+  width: $size;
+  height: $size;
+  background-color: $bg-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@mixin heading-style($font-size: 2rem, $font-weight: 300) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+@mixin circular-element($size: 2rem, $bg-color: #10141e7c) {
+  z-index: 3;
+  cursor: pointer;
+  top: .875rem;
+  margin-left: 13.75rem;
+  width: $size;
+  height: $size;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg-color;
+
+  &:hover{
+    background-color: $white;
+    svg{
+      path{
+        fill: transparent;
+        stroke: $vulcan;
+        stroke-width: 1.8px;
+      }
+    }
+  }
+}
+
+
+

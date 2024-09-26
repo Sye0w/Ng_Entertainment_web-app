@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { MediaFacadeService } from '../../services/media-facade.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-movies-dashboard',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './movies-dashboard.component.html',
   styleUrl: './movies-dashboard.component.scss'
 })
-export class MoviesDashboardComponent {
 
+export class MoviesDashboardComponent {
+  movies$ = this.mediaFacade.movies$
+  constructor(private mediaFacade: MediaFacadeService ){}
 }
