@@ -52,6 +52,12 @@
       @if( homeMedias$ | async; as medias){
         @for(media of medias; track media.title; let i = $index){
           <li>
+            <div class="overlay">
+              <div class="overlay-inner">
+                <img src="../../../assets/images/icon-play.svg" alt="">
+                Play
+              </div>
+            </div>
             <img id="img" [src]="media.thumbnail.regular.small " alt="">
             <div class="media-tick">
               @if(media.isBookmarked){
@@ -65,7 +71,6 @@
               }
             </div>
             <div class="media-info">
-
               <div class="trend-title">
                 <p>{{ media.year }}</p>
                 <span class="circle"></span>
@@ -77,7 +82,7 @@
                   }
                   <p>{{ media.category }}</p>
                 </div>
-                
+
                 <span class="circle"></span>
                 <p>{{ media.rating }}</p>
               </div>
