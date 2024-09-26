@@ -14,7 +14,9 @@ export class HomeDashboardComponent {
   homeMedias$ = this.mediaFacade.mediasAll$
   trends$ = this.mediaFacade.trending$
 
-  constructor(private mediaFacade: MediaFacadeService){}
+
+  constructor(private mediaFacade: MediaFacadeService){
+  }
 
 
 }

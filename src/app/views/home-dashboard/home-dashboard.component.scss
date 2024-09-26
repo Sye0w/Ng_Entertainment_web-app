@@ -1,10 +1,11 @@
 @use '../../../partials/variables' as *;
+@use '../../../partials/mixins' as *;
 
 section{
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 2.5rem;
+  gap: 2rem;
   overflow-y: scroll;
   max-height: 43.75rem;
   h3{
@@ -19,22 +20,29 @@ section{
     width: 100%;
 
     ul{
-      // overflow-x: scroll;
+      position: relative;
+      overflow-x: scroll;
       width: 100%;
       list-style-type: none;
       display: flex;
       gap: 2.5rem;
       padding-bottom: 1rem;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       li{
-        background-size: cover;
-        background-repeat: no-repeat;
-        object-fit: contain;
+        position: relative;
+        @include cover-background;
         border-radius: .5rem;
         height: 14.375rem;
         width: 30rem !important;
+        min-width: 30rem;
         display: flex;
         align-items: end;
+        transition: .3s ease;
+
         .trend-info{
           display: flex;
           width: 100%;
@@ -80,30 +88,146 @@ section{
             // svg
           }
         }
+
+        .bookmark-tick{
+          cursor:pointer;
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          top: .875rem;
+          margin-left: 27.125rem;
+          z-index: 3;
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          background-color: #10141e7c;
+
+          &:hover{
+            background-color: $white;
+            svg{
+              path{
+                fill: transparent;
+                stroke: $vulcan;
+                stroke-width: 1.8px;
+              }
+            }
+          }
+        }
+
+
       }
     }
   }
 
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: .3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .overlay-inner{
+      width: 7.3125rem;
+      height: 3rem;
+      background-color: transparent ;
+      border-radius: 1.7813rem;
+      display: flex;
+      align-items: center;
+      padding-left: .5625rem;
+      gap: 1.1875rem;
+      display: none;
+
+    }
+
+
+
+  }
+  .overlay:hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    .overlay-inner{
+      display: block;
+      width: 7.3125rem;
+      height: 3rem;
+      background-color: #ffffff4d;
+      border-radius: 1.7813rem;
+      display: flex;
+      align-items: center;
+      padding-left: .5625rem;
+      gap: 1.1875rem;
+    }
+  }
+
+
   .recommended{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
+    padding-right: 2.25rem;
+    padding-bottom: 3rem;
     .medias{
       display: flex;
+      gap: 1.5rem;
       list-style-type: none;
       flex-wrap: wrap;
       li{
+
+        position: relative;
         display: flex;
         flex-direction: column;
-        gap: .3125rem;
-        width: 17.5rem;
+        gap: .5rem;
+        width: 16.5rem;
         height: 14.125rem;
+
+        .media-tick{
+          top: .875rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          margin-left: 13.75rem;
+          z-index: 3;
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          background-color: #10141e7c;
+          cursor: pointer;
+
+          &:hover{
+            background-color: $white;
+            svg{
+              path{
+                fill: transparent;
+                stroke: $vulcan;
+                stroke-width: 1.8px;
+              }
+            }
+          }
+        }
+
+        #img{
+          border-radius: .5rem;
+          @include cover-background;
+        }
+
+      }
+      .media-info{
         .trend-title{
           display: flex;
           align-items: center;
           gap: .5rem;
           font-size: .9375rem !important;
-
           div{
             display: flex;
             gap: 0.25rem;
@@ -126,11 +250,17 @@ section{
           }
           // svg
         }
+
         h4{
-          font-weight: 300;
+          font-size: 1.125rem;
+          font-weight: 500;
         }
       }
+      h4{
+        font-weight: 300;
+      }
     }
-
   }
 }
+
+

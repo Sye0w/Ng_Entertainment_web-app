@@ -40,7 +40,7 @@
         color: $white;
         padding-left: 0.75rem;
         caret-color: $sunset-orange;
-        
+
         &.border-viz{
           border-bottom: 1px solid $sunset-orange;
         }
@@ -119,4 +119,41 @@
     margin-bottom: 3rem;
 
   }
+}
+
+@mixin cover-background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+
+@mixin media-title($fontSize: .9375rem, $gapMain: .5rem, $gapInner: .25rem, $circleSize: .1875rem, $whiteColor: #fff) {
+  display: flex;
+  align-items: center;
+  gap: $gapMain;
+  font-size: $fontSize !important;
+
+  div {
+    display: flex;
+    gap: $gapInner;
+    align-items: center;
+
+    img {
+      width: .75rem;
+      height: .75rem;
+    }
+  }
+
+  .circle {
+    background-color: $whiteColor;
+    width: $circleSize;
+    height: $circleSize;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // You can add svg styling here if needed
 }
