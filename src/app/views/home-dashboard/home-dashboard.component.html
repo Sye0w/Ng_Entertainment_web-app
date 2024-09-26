@@ -1,1 +1,56 @@
-<p>home-dashboard works!</p>
+<section>
+  <div class="trends">
+    <h3>Trending</h3>
+    <ul>
+      @if(trends$ | async; as trends){
+        @for (trend of trends; track trend.title; let i = $index) {
+          <li [ngStyle]="{'background-image':'url(' + trend.thumbnail.trending?.large + ')'}">
+            <div class="trend-info">
+              <div class="trend-title">
+                <p>{{ trend.year }}</p>
+                <span class="circle"></span>
+                <div>
+                  @if (trend.category === 'Movie') {
+                    <img src="../../../assets/images/icon-nav-movies.svg" alt="">
+                  } @else {
+                    <img src="../../../assets/images/icon-nav-tv-series.svg" alt="">
+                  }
+                  <p>{{ trend.category }}</p>
+                </div>
+                <span class="circle"></span>
+                <p>{{ trend.rating }}</p>
+              </div>
+              <h4>{{ trend.title }}</h4>
+            </div>
+          </li>
+        }
+      }
+    </ul>
+  </div>
+  <div class="recommended">
+    <h3>Recommended for you</h3>
+    <ul class="medias">
+      @if( homeMedias$ | async; as medias){
+        @for(media of medias; track media.title; let i = $index){
+          <li>
+            <div class="trend-title">
+              <p>{{ media.year }}</p>
+              <span class="circle"></span>
+              <div>
+                @if (media.category === 'Movie') {
+                  <img src="../../../assets/images/icon-nav-movies.svg" alt="">
+                } @else {
+                  <img src="../../../assets/images/icon-nav-tv-series.svg" alt="">
+                }
+                <p>{{ media.category }}</p>
+              </div>
+              <span class="circle"></span>
+              <p>{{ media.rating }}</p>
+            </div>
+            <h4>{{ media.title }}</h4>
+          </li>
+        }
+      }
+    </ul>
+  </div>
+</section>

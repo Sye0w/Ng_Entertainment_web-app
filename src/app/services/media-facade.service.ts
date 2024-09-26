@@ -9,7 +9,7 @@ import { MediaActions } from '../store/media/media.actions';
 })
 
 export class MediaFacadeService {
-  mediasAll$ = this.store.select(MediaSelectors.selectAllMedia);
+  mediasAll$ = this.store.select(MediaSelectors.selectNonTrendingMedia);
   movies$  = this.store.select(MediaSelectors.selectMediaByMovies)
   series$  = this.store.select(MediaSelectors.selectMediaBySeries)
   bookmarks$ = this.store.select(MediaSelectors.selectMediaBookmarks)

@@ -12,6 +12,10 @@ export const {
   selectTotal: selectTotalMedia,
 } = mediaAdapter.getSelectors(selectMediaState);
 
+export const selectNonTrendingMedia = createSelector(
+  selectAllMedia,
+  (medias) => medias.filter(media => !media.isTrending)
+);
 
 export const selectMediaByTrending = createSelector(
   selectAllMedia,

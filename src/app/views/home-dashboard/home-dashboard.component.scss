@@ -1,0 +1,136 @@
+@use '../../../partials/variables' as *;
+
+section{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2.5rem;
+  overflow-y: scroll;
+  max-height: 43.75rem;
+  h3{
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  .trends{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5625rem;
+    width: 100%;
+
+    ul{
+      // overflow-x: scroll;
+      width: 100%;
+      list-style-type: none;
+      display: flex;
+      gap: 2.5rem;
+      padding-bottom: 1rem;
+
+      li{
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-fit: contain;
+        border-radius: .5rem;
+        height: 14.375rem;
+        width: 30rem !important;
+        display: flex;
+        align-items: end;
+        .trend-info{
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          padding: 1.5rem 0 0 1.5rem;
+          border-bottom-left-radius: .5rem;
+          border-bottom-right-radius: .5rem;
+          width: 100%;
+          height: 6.25rem;
+          background: linear-gradient(to bottom, #00000000 0%, #000000 75%);
+
+          h4{
+            font-size: 1.5rem;
+            font-weight: 300;
+          }
+
+          .trend-title{
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .9375rem !important;
+
+            div{
+              display: flex;
+              gap: 0.25rem;
+              align-items: center;
+
+              img{
+                width: .75rem;
+                height: .75rem;
+              }
+            }
+
+            .circle{
+              background-color: $white;
+              width: .1875rem;
+              height: .1875rem;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            // svg
+          }
+        }
+      }
+    }
+  }
+
+  .recommended{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .medias{
+      display: flex;
+      list-style-type: none;
+      flex-wrap: wrap;
+      li{
+        display: flex;
+        flex-direction: column;
+        gap: .3125rem;
+        width: 17.5rem;
+        height: 14.125rem;
+        .trend-title{
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+          font-size: .9375rem !important;
+
+          div{
+            display: flex;
+            gap: 0.25rem;
+            align-items: center;
+
+            img{
+              width: .75rem;
+              height: .75rem;
+            }
+          }
+
+          .circle{
+            background-color: $white;
+            width: .1875rem;
+            height: .1875rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          // svg
+        }
+        h4{
+          font-weight: 300;
+        }
+      }
+    }
+
+  }
+}
