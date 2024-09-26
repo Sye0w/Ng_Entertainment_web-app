@@ -24,7 +24,7 @@ section{
     flex-wrap: wrap;
     list-style-type: none;
     gap: 2.5rem;
-    
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -36,6 +36,12 @@ section{
       gap: .5rem;
       width: 16.5rem;
       height: 14.125rem;
+
+      .overlay{
+        height: 11.125rem !important;
+      }
+      @include overlay();
+
       #img{
         border-radius: .5rem;
         @include cover-background;

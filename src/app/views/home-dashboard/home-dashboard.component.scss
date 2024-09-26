@@ -6,6 +6,11 @@ section{
   flex-direction: column;
   width: 100%;
   gap: 2rem;
+  overflow-y: scroll;
+  max-height: 43.75rem;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   h3{
     @include heading-style
@@ -114,25 +119,22 @@ section{
     }
   }
 
+
   @include overlay();
 
 
   .recommended{
+
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
     padding-right: 2.25rem;
     padding-bottom: 3rem;
     .medias{
-      overflow-y: scroll;
-      max-height: 43.75rem;
       display: flex;
       gap: 1.5rem;
       list-style-type: none;
       flex-wrap: wrap;
-      &::-webkit-scrollbar {
-        display: none;
-      }
       li{
         position: relative;
         display: flex;
@@ -140,7 +142,13 @@ section{
         gap: .5rem;
         width: 16.5rem;
         height: 14.125rem;
+        overflow: hidden;
 
+        .overlay{
+          height: 11.125rem !important;
+        }
+
+        @include overlay();
         .media-tick{
           @include circular-element;
         }
