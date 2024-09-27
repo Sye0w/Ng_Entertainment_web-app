@@ -34,12 +34,7 @@ section{
     }
 
     li{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      width: 16.5rem;
-      height: 14.125rem;
+      @include flex-column-container;
 
       .overlay{
         height: 11.125rem !important;

@@ -8,7 +8,7 @@ section{
   margin-top: 2.125rem;
   gap: 2rem;
   overflow-y: scroll;
-  
+
   max-height: 50.75rem;
   &::-webkit-scrollbar {
     display: none;
@@ -138,12 +138,7 @@ section{
       list-style-type: none;
       flex-wrap: wrap;
       li{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-        width: 16.5rem;
-        height: 14.125rem;
+        @include flex-column-container;
         overflow: hidden;
 
         .overlay{

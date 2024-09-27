@@ -237,4 +237,12 @@
 }
 
 
+@mixin flex-column-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 16.5rem;
+  height: 14.125rem;
+}
 
