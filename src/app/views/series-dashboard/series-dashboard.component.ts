@@ -11,6 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 
 export class SeriesDashboardComponent {
-  series$ = this.mediaFacade.series$
+  series$ = this.mediaFacade.getFilteredMedia('series')
   constructor(private mediaFacade: MediaFacadeService){}
 }

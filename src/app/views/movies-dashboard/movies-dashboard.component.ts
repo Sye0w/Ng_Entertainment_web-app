@@ -11,6 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 
 export class MoviesDashboardComponent {
-  movies$ = this.mediaFacade.movies$
+  movies$ = this.mediaFacade.getFilteredMedia('movies')
   constructor(private mediaFacade: MediaFacadeService ){}
 }

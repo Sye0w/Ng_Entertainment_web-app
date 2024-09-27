@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class HomeDashboardComponent {
-  homeMedias$ = this.mediaFacade.mediasAll$
+  homeMedias$ = this.mediaFacade.getFilteredMedia('all')
   trends$ = this.mediaFacade.trending$
 
 

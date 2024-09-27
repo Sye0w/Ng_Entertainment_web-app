@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class BookmarkedDashboardComponent implements OnInit {
-  bookmarks$: Observable<IMediaItem[]> = this.mediaFacade.bookmarks$
+  bookmarks$: Observable<IMediaItem[]> = this.mediaFacade.getFilteredMedia('bookmarks');
   bookmarkedMovies$!: Observable<IMediaItem[]>;
   bookmarkedSeries$!: Observable<IMediaItem[]>;
 
