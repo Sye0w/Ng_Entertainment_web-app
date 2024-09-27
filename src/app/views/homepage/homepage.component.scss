@@ -2,9 +2,13 @@ main{
   display: flex;
   padding: 2rem 0 0 2rem;
   overflow: hidden;
+  .search-results{
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
 
   section{
-    
+
     margin-left: 8.75rem;
     width: 100%;
   }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaFacadeService } from '../../services/media-facade.service';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
-import { IMediaItem } from '../../store/media.interface';
+
 
 @Component({
   selector: 'app-home-dashboard',
@@ -13,7 +12,8 @@ import { IMediaItem } from '../../store/media.interface';
 })
 
 export class HomeDashboardComponent implements OnInit {
-  homeMedias$ = this.mediaFacade.getFilteredMedia('all')
+  homeMedias$ = this.mediaFacade.getFilteredMedia('all');
+  searchParam$ = this.mediaFacade.searchParam$;
 
   toggleBookmark(title: string) {
     if (title) {

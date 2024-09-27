@@ -11,18 +11,19 @@ import { IMediaItem } from '../store/media.interface';
   providedIn: 'root'
 })
 export class MediaFacadeService {
+  routerSelectors = getRouterSelectors();
   private mediasAll$ = this.store.select(MediaSelectors.selectAllMedia);
   private movies$ = this.store.select(MediaSelectors.selectMediaByMovies);
   private series$ = this.store.select(MediaSelectors.selectMediaBySeries);
   private bookmarks$ = this.store.select(MediaSelectors.selectMediaBookmarks);
-  trending$ = this.store.select(MediaSelectors.selectMediaByTrending);
+  searchParam$ = this.store.pipe(select(this.routerSelectors.selectQueryParams))
 
-
-  private routerSelectors = getRouterSelectors();
 
   constructor(
     private store: Store<RouterReducerState>,
-  ) {}
+  ) {
+    this.searchParam$.subscribe( search => console.log(search) )
+  }
 
   loadMedias(){
     this.store.dispatch(MediaActions.loadMedias());
@@ -36,7 +37,7 @@ export class MediaFacadeService {
 
   getFilteredMedia(category: 'all' | 'movies' | 'series' | 'bookmarks'): Observable<IMediaItem[]> {
     return combineLatest([
-      this.store.pipe(select(this.routerSelectors.selectQueryParams)),
+     this.searchParam$,
       this.getMediaObservable(category)
     ]).pipe(
       map(([params, media]) => {

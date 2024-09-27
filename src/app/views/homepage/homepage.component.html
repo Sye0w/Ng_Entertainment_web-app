@@ -2,6 +2,16 @@
   <app-navbar/>
   <section>
     <app-search/>
+    @if(searchParam$ | async; as searchParam ){
+      @if(searchParam['search']){
+        @if(homeMedias$ | async; as medias){
+          <p class="search-results">
+            Found {{ medias.length }} results for
+            <span class="highlight">'{{ (searchParam['search']) }}'</span>
+          </p>
+        }
+      }
+    }
     <router-outlet/>
   </section>
 </main>
