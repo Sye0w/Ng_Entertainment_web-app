@@ -46,8 +46,11 @@
             }
           </ul>
       </div>
+    } @else {
+      <app-not-found [category]="'homepage'"/>
     }
   }
+
   @if( homeMedias$ | async; as medias){
     @if(medias.length > 0){
       <div class="recommended">
@@ -94,6 +97,8 @@
             }
           </ul>
       </div>
+    } @else {
+      <app-not-found [category]="'homepage'"/>
     }
   }
 </section>

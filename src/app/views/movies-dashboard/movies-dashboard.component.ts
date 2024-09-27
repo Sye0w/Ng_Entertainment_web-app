@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaFacadeService } from '../../services/media-facade.service';
 import { CommonModule } from '@angular/common';
+import { NotFoundComponent } from "../../components/not-found/not-found.component";
 
 @Component({
   selector: 'app-movies-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NotFoundComponent],
   templateUrl: './movies-dashboard.component.html',
   styleUrl: './movies-dashboard.component.scss'
 })

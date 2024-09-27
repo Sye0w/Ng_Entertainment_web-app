@@ -1,0 +1,22 @@
+@use '../../../partials/variables' as *;
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+
+  p{
+    font-size: 1rem;
+    span{
+      color: $sunset-orange;
+    }
+  }
+
+  img{
+    width: 15rem;
+    height: 15rem;
+    margin-bottom: 1.5rem;
+  }
+}
