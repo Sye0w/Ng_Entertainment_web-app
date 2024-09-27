@@ -8,9 +8,13 @@ section{
   flex-direction: column;
   gap: 2rem !important;
   width: 100%;
+  overflow-y: scroll;
 
+  max-height: 50.75rem;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   padding-bottom: 3rem;
-
   h3{
     @include heading-style
   }

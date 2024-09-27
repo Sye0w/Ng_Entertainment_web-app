@@ -5,6 +5,12 @@ div{
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow-y: scroll;
+
+  max-height: 50.75rem;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .bookmarked-movies,.bookmarked-series{
     display: flex;
@@ -14,7 +20,7 @@ div{
     gap: 2rem !important;
     width: 100%;
     padding-bottom: 3rem;
-
+    
     h3{
       @include heading-style
     }
