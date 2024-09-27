@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MediaFacadeService } from '../../services/media-facade.service';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +10,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './series-dashboard.component.scss'
 })
 
-export class SeriesDashboardComponent {
+export class SeriesDashboardComponent implements OnInit {
   series$ = this.mediaFacade.getFilteredMedia('series')
   constructor(private mediaFacade: MediaFacadeService){}
+
+  toggleBookmark(title: string) {
+    if (title) {
+      this.mediaFacade.toggleBookmark(title);
+    } else {
+      console.error(`Media with title "${title}" not found`);
+    }
+  }
+
+  ngOnInit(): void {
+    this.mediaFacade.loadMedias()
+  }
 }

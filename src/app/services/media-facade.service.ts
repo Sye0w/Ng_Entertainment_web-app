@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Router, ActivatedRoute } from '@angular/router'; // REMOVED: ActivatedRoute
+import { Router, ActivatedRoute } from '@angular/router';
 import * as MediaSelectors from '../store/media/media.selectors';
-import { map, combineLatest, Observable } from 'rxjs'; // ADDED: Observable
+import { map, combineLatest, Observable } from 'rxjs';
 import { getRouterSelectors, RouterReducerState } from '@ngrx/router-store';
 import { MediaActions } from '../store/media/media.actions';
+import { IMediaItem } from '../store/media.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MediaFacadeService {
-  private mediasAll$ = this.store.select(MediaSelectors.selectNonTrendingMedia);
+  private mediasAll$ = this.store.select(MediaSelectors.selectAllMedia);
   private movies$ = this.store.select(MediaSelectors.selectMediaByMovies);
   private series$ = this.store.select(MediaSelectors.selectMediaBySeries);
   private bookmarks$ = this.store.select(MediaSelectors.selectMediaBookmarks);
@@ -21,14 +22,19 @@ export class MediaFacadeService {
 
   constructor(
     private store: Store<RouterReducerState>,
-    private router: Router
   ) {}
 
   loadMedias(){
     this.store.dispatch(MediaActions.loadMedias());
   }
 
-  getFilteredMedia(category: 'all' | 'movies' | 'series' | 'bookmarks'): Observable<any[]> {
+
+  toggleBookmark(title: string) {
+    console.log('action dispatch toggleBookmark');
+    this.store.dispatch(MediaActions.toggleBookmark({ id: title }));
+  }
+
+  getFilteredMedia(category: 'all' | 'movies' | 'series' | 'bookmarks'): Observable<IMediaItem[]> {
     return combineLatest([
       this.store.pipe(select(this.routerSelectors.selectQueryParams)),
       this.getMediaObservable(category)
@@ -43,7 +49,7 @@ export class MediaFacadeService {
     );
   }
 
-    private getMediaObservable(category: 'all' | 'movies' | 'series' | 'bookmarks'): Observable<any[]> {
+  private getMediaObservable(category: 'all' | 'movies' | 'series' | 'bookmarks'): Observable<any[]> {
     switch (category) {
       case 'movies': return this.movies$;
       case 'series': return this.series$;

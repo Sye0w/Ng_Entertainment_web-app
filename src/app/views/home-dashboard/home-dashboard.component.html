@@ -2,45 +2,46 @@
   <div class="trends">
     <h3>Trending</h3>
     <ul>
-      @if(trends$ | async; as trends){
-        @for (trend of trends; track trend.title; let i = $index) {
-          <li [ngStyle]="{'background-image':'url(' + trend.thumbnail.trending?.large + ')'}">
-            <div class="bookmark-tick">
-              @if(trend.isBookmarked){
-                <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/>
-                </svg>
-              }@else {
-                <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/>
-                </svg>
-              }
-            </div>
-            <div class="trend-info">
-              <div class="trend-title">
-                <p>{{ trend.year }}</p>
-                <span class="circle"></span>
-                <div>
-                  @if (trend.category === 'Movie') {
-                    <img src="../../../assets/images/icon-nav-movies.svg" alt="">
-                  } @else {
-                    <img src="../../../assets/images/icon-nav-tv-series.svg" alt="">
-                  }
-                  <p>{{ trend.category }}</p>
+      @if(homeMedias$ | async; as trends){
+        @for (trend of trends; track $index) {
+          @if(trend.isTrending){
+            <li [ngStyle]="{'background-image':'url(' + trend.thumbnail.trending?.large + ')'}">
+              <div class="bookmark-tick" (click)="toggleBookmark(trend.title)">
+                @if(trend.isBookmarked){
+                  <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.61 0c.14 0 .273.028.4.083a1.03 1.03 0 0 1 .657.953v11.928a1.03 1.03 0 0 1-.656.953c-.116.05-.25.074-.402.074-.291 0-.543-.099-.756-.296L5.833 9.77l-4.02 3.924c-.218.203-.47.305-.756.305a.995.995 0 0 1-.4-.083A1.03 1.03 0 0 1 0 12.964V1.036A1.03 1.03 0 0 1 .656.083.995.995 0 0 1 1.057 0h9.552Z" fill="#FFF"/>
+                  </svg>
+                }@else {
+                  <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/>
+                  </svg>
+                }
+              </div>
+              <div class="trend-info">
+                <div class="trend-title">
+                  <p>{{ trend.year }}</p>
+                  <span class="circle"></span>
+                  <div>
+                    @if (trend.category === 'Movie') {
+                      <img src="../../../assets/images/icon-nav-movies.svg" alt="">
+                    } @else {
+                      <img src="../../../assets/images/icon-nav-tv-series.svg" alt="">
+                    }
+                    <p>{{ trend.category }}</p>
+                  </div>
+                  <span class="circle"></span>
+                  <p>{{ trend.rating }}</p>
                 </div>
-                <span class="circle"></span>
-                <p>{{ trend.rating }}</p>
+                <h4>{{ trend.title }}</h4>
               </div>
-              <h4>{{ trend.title }}</h4>
-            </div>
-            <div class="overlay">
-              <div class="overlay-inner">
-                <img src="../../../assets/images/icon-play.svg" alt="">
-                Play
+              <div class="overlay">
+                <div class="overlay-inner">
+                  <img src="../../../assets/images/icon-play.svg" alt="">
+                  Play
+                </div>
               </div>
-            </div>
-          </li>
-
+            </li>
+          }
         }
       }
     </ul>
@@ -59,14 +60,14 @@
               </div>
             </div>
             <img id="img" [src]="media.thumbnail.regular.small " alt="">
-            <div class="media-tick">
+            <div class="media-tick" (click)="toggleBookmark(media.title)">
               @if(media.isBookmarked){
                 <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/>
+                  <path d="M10.61 0c.14 0 .273.028.4.083a1.03 1.03 0 0 1 .657.953v11.928a1.03 1.03 0 0 1-.656.953c-.116.05-.25.074-.402.074-.291 0-.543-.099-.756-.296L5.833 9.77l-4.02 3.924c-.218.203-.47.305-.756.305a.995.995 0 0 1-.4-.083A1.03 1.03 0 0 1 0 12.964V1.036A1.03 1.03 0 0 1 .656.083.995.995 0 0 1 1.057 0h9.552Z" fill="#FFF"/>
                 </svg>
               }@else {
                 <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.61 0c.14 0 .273.028.4.083a1.03 1.03 0 0 1 .657.953v11.928a1.03 1.03 0 0 1-.656.953c-.116.05-.25.074-.402.074-.291 0-.543-.099-.756-.296L5.833 9.77l-4.02 3.924c-.218.203-.47.305-.756.305a.995.995 0 0 1-.4-.083A1.03 1.03 0 0 1 0 12.964V1.036A1.03 1.03 0 0 1 .656.083.995.995 0 0 1 1.057 0h9.552Z" fill="#FFF"/>
+                  <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/>
                 </svg>
               }
             </div>
@@ -82,7 +83,6 @@
                   }
                   <p>{{ media.category }}</p>
                 </div>
-
                 <span class="circle"></span>
                 <p>{{ media.rating }}</p>
               </div>

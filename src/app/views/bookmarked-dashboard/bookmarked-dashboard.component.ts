@@ -27,5 +27,15 @@ export class BookmarkedDashboardComponent implements OnInit {
     this.bookmarkedSeries$ = this.bookmarks$.pipe(
       map((bookmarks: IMediaItem[]) => bookmarks.filter((item) => item.category === 'TV Series'))
     );
+    this.mediaFacade.loadMedias()
   }
+
+  toggleBookmark(title: string) {
+    if (title) {
+      this.mediaFacade.toggleBookmark(title);
+    } else {
+      console.error(`Media with title "${title}" not found`);
+    }
+  }
+
 }
