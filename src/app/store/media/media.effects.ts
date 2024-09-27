@@ -16,10 +16,8 @@ export class MediaEffects {
       withLatestFrom(this.store.select(selectAllMedia)),
       switchMap(([_, medias]) => {
         if (medias.length > 0) {
-
           return of(MediaActions.loadMediasSuccess({ medias }));
         } else {
-          
           return this.fetchService.fetchData().pipe(
             map((medias: IMediaItem[]) => MediaActions.loadMediasSuccess({ medias })),
             catchError(error => of(MediaActions.loadMediasFail({ error: error.message })))
