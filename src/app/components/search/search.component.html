@@ -1,5 +1,5 @@
 <section>
   <img src="../../../assets/images/icon-search.svg" alt="">
-  <input [(ngModel)]="title" type="text" placeholder="Search for movies or TV series">
+  <input [(ngModel)]="searchTerm" (ngModelChange)="onSearchInput()" type="text" placeholder="Search for movies or TV series">
 
 </section>
