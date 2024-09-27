@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MediaFacadeService } from '../../services/media-facade.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,5 +12,10 @@ import { RouterModule } from '@angular/router';
 })
 
 export class NavbarComponent {
-  selected: boolean = false;
+  isHomeActive$ = this.mediaFacade.isRouteActive('/app/home')
+  isMovieActive$ = this.mediaFacade.isRouteActive('/app/movies')
+  isSeriesActive$ = this.mediaFacade.isRouteActive('/app/tv-series')
+  isBookmarksActive$ = this.mediaFacade.isRouteActive('/app/bookmarks')
+
+  constructor(private mediaFacade: MediaFacadeService){}
 }

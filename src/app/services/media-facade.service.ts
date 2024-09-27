@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Router, ActivatedRoute } from '@angular/router';
 import * as MediaSelectors from '../store/media/media.selectors';
 import { map, combineLatest, Observable } from 'rxjs';
 import { getRouterSelectors, RouterReducerState } from '@ngrx/router-store';
@@ -17,12 +16,12 @@ export class MediaFacadeService {
   private series$ = this.store.select(MediaSelectors.selectMediaBySeries);
   private bookmarks$ = this.store.select(MediaSelectors.selectMediaBookmarks);
   searchParam$ = this.store.pipe(select(this.routerSelectors.selectQueryParams))
-
+  currentRoute$ = this.store.pipe(select(this.routerSelectors.selectUrl))
 
   constructor(
     private store: Store<RouterReducerState>,
   ) {
-    this.searchParam$.subscribe( search => console.log(search) )
+
   }
 
   loadMedias(){
@@ -31,7 +30,6 @@ export class MediaFacadeService {
 
 
   toggleBookmark(title: string) {
-    console.log('action dispatch toggleBookmark');
     this.store.dispatch(MediaActions.toggleBookmark({ id: title }));
   }
 
@@ -57,5 +55,11 @@ export class MediaFacadeService {
       case 'bookmarks': return this.bookmarks$;
       default: return this.mediasAll$;
     }
+  }
+
+  isRouteActive(route: string): Observable<boolean> {
+    return this.currentRoute$.pipe(
+      map(currentUrl => currentUrl.startsWith(route))
+    );
   }
 }

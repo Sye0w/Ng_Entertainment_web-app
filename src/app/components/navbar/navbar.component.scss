@@ -15,18 +15,23 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
-
     gap: 4.6875rem;
     margin-top: 2.1875rem;
-
     ul{
       list-style-type: none;
       display: flex;
       flex-direction: column;
       gap: 2.5rem;
-
       li{
         a{
+          &.active{
+            svg{
+              path{
+                fill: $white;
+              }
+            }
+          }
+
           &:hover{
             svg{
               path{
