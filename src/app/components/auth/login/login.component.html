@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <section>
   <h4>Login</h4>
   <form [formGroup]="loginForm" class="form">
@@ -25,7 +26,7 @@
         {{ getPswdVizStr('password') }}
       </div>
   </form>
-  <button [disabled]="loginForm.invalid"  type="button" mat-button title="login to your account" routerLink="/app/home">
+  <button [disabled]="loginForm.invalid"  type="button" mat-button title="login to your account"  (click)="login()">
     <p>
       Login to your account
     </p>
@@ -36,5 +37,4 @@
   </div>
 </section>
 
-<!-- code snippet for form-validation add later -->
-<!-- [disabled]="loginForm.invalid" -->
+

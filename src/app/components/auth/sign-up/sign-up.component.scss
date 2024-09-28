@@ -28,7 +28,7 @@ section {
       transition: all 0.3s ease;
 
       &:hover {
-        color: $mirage;
+        color: $mirage !important;
       }
     }
 

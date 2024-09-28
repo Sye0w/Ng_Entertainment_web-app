@@ -6,10 +6,10 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { MediaEffects } from './store/media/media.effects';
-import { mediaReducer } from './store/media/media.reducer';
 import { metaReducers } from './store/meta-reducer';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { appReducers } from './store/reducers';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +24,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideRouterStore(),
     provideEffects(MediaEffects),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideAnimations()
   ]
 };
