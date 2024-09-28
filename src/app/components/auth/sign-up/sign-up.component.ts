@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule } from '@angular/router';
-import { FormValidationService } from '../../../services/form-validation.service';
+import { FormService } from '../../../services/form.service';
 import { AuthService } from '../../../services/auth.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
@@ -22,7 +22,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private validation: FormValidationService,
+    private validation: FormService,
     private router: Router,
     private authService: AuthService,
     private messageService: MessageService

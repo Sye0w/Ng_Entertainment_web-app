@@ -3,7 +3,7 @@ import { RouterModule, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormValidationService } from '../../../services/form-validation.service';
+import { FormService } from '../../../services/form.service';
 import { AuthService } from '../../../services/auth.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
@@ -20,9 +20,10 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
   constructor(
-    private validation: FormValidationService,
+    private validation: FormService,
     private authService: AuthService,
     private router: Router,
+    private formService: FormService,
     private messageService: MessageService
   ) {}
 
@@ -49,47 +50,18 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  getErrorMessage(fieldName: string): string {
+  getErrorMessage(fieldName: string) {
     const control = this.loginForm.get(fieldName);
-    if (control?.errors) {
-      const errorType = Object.keys(control.errors)[0];
-      switch (errorType) {
-        case 'required':
-          return `Email is required`;
-        case 'email':
-          return 'Invalid email format';
-        default:
-          return 'Invalid input';
-      }
-    }
-    return '';
+    return this.formService.getErrorMessage(control!, fieldName);
   }
 
   getPswdViz(fieldName: string) {
     const control = this.loginForm.get(fieldName);
-    if (control?.errors) {
-      if (control.errors['required']) {
-        return "Can't be empty";
-      }
-    }
-    return '';
+    return this.formService.getPswdViz(control!);
   }
 
   getPswdVizStr(fieldName: string) {
-    const control = this.loginForm.get(fieldName);
-    if (control?.errors) {
-      if (control.errors['minlength']) {
-        return 'Password must be at least 6 characters long';
-      }
-      if (control.errors['passwordStrength']) {
-        const strength = control.errors['passwordStrength'];
-        if (!strength.hasLowerCase) return 'Password must contain at least one lowercase letter';
-        if (!strength.hasUpperCase) return 'Password must contain at least one uppercase letter';
-        if (!strength.hasNumeric) return 'Password must contain at least one number';
-        if (!strength.hasSpecialChar) return 'Password must contain at least one special character';
-      }
-    }
-    return 'Invalid input';
+    return this.formService.getPasswordStrengthError(this.loginForm.get(fieldName));
   }
 
   login() {
