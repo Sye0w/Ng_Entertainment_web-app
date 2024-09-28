@@ -26,7 +26,11 @@
         {{ getPswdVizStr('password') }}
       </div>
   </form>
-  <button [disabled]="loginForm.invalid"  type="button" mat-button title="login to your account"  (click)="login()">
+  <button [disabled]="loginForm.invalid"
+    type="button" mat-button
+    [ngClass]="{'disabled':loginForm.invalid}"
+    title="login to your account"
+     (click)="login()">
     <p>
       Login to your account
     </p>

@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <section>
   <h4>Sign Up</h4>
   <form class="form" [formGroup]="signUpForm">
@@ -58,6 +59,7 @@
     [disabled]="signUpForm.invalid"
     [ngClass]="{'disabled':signUpForm.invalid}"
     mat-button
+    (click)="signup()"
     title="create an account"
   >
     <p>Create an account</p>

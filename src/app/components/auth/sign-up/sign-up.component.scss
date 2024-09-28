@@ -59,6 +59,33 @@ section {
   }
 }
 
+::ng-deep .p-toast {
+  .p-toast-message {
+    background-color: transparent;
+    // color: $sunset-orange;
+
+    .p-toast-message-content {
+      background-color: transparent;
+      padding: 1rem;
+
+      // .p-toast-message-icon {
+        // color: $sunset-orange;
+      // }
+
+      .p-toast-message-text {
+        margin-left: 1rem;
+        // color: $sunset-orange;
+      }
+    }
+
+    &.p-toast-message-error {
+      background-color: transparent;
+      border-color: $sunset-orange;
+    }
+  }
+}
+
+
 @keyframes shine {
   0% {
     left: -100%;

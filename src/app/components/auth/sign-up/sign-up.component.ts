@@ -2,22 +2,30 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormValidationService } from '../../../services/form-validation.service';
+import { AuthService } from '../../../services/auth.service';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [RouterModule, MatButtonModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, MatButtonModule, ReactiveFormsModule, CommonModule,ToastModule],
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.scss'
+  styleUrl: './sign-up.component.scss',
+  providers: [MessageService]
 })
 export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private validation: FormValidationService
+    private validation: FormValidationService,
+    private router: Router,
+    private authService: AuthService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +43,6 @@ export class SignUpComponent implements OnInit {
   matchValidator(group: FormGroup): { [key: string]: boolean } | null {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
-
     return password === confirmPassword ? null : { 'mismatch': true };
   }
 
@@ -83,5 +90,34 @@ export class SignUpComponent implements OnInit {
       if (!strength.hasSpecialChar) return 'Password must contain at least one special character';
     }
     return '';
+  }
+
+  signup() {
+    if (this.signUpForm.valid) {
+      const { email, password } = this.signUpForm.value;
+      this.authService.signup({ email, password }).subscribe({
+        next: (response) => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: response.message || 'Signup successful!'
+          });
+          this.router.navigate(['/auth/login']);
+        },
+        error: (error) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: error.error.message || 'An error occurred during signup. Please try again.'
+          });
+        }
+      });
+    } else {
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Invalid Form',
+        detail: 'Please fill all required fields correctly.'
+      });
+    }
   }
 }
