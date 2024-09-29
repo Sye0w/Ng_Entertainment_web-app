@@ -35,54 +35,7 @@ section{
       display: none;
     }
 
-    li{
-      @include flex-column-container;
-
-      .overlay{
-        height: 11.125rem !important;
-      }
-      @include overlay();
-
-      #img{
-        border-radius: .5rem;
-        @include cover-background;
-      }
-
-      .movie-info{
-        .trend-title{
-          display: flex;
-          align-items: center;
-          gap: .5rem;
-          font-size: .9375rem !important;
-          div{
-            display: flex;
-            gap: 0.25rem;
-            align-items: center;
-
-            img{
-              width: .75rem;
-              height: .75rem;
-            }
-          }
-
-          .circle{
-            @include  circle
-          }
-        }
-
-        h4{
-          font-size: 1.125rem;
-          font-weight: 500;
-        }
-      }
-
-      .movie-tick{
-        top: .875rem;
-        margin-left: 13.75rem;
-        position: absolute;
-        @include circular-element;
-      }
-    }
+    
   }
 
 }

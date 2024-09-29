@@ -25,7 +25,8 @@ export class SignUpComponent implements OnInit {
     private validation: FormService,
     private router: Router,
     private authService: AuthService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private formService: FormService
   ) { }
 
   ngOnInit(): void {
@@ -80,16 +81,9 @@ export class SignUpComponent implements OnInit {
     return '';
   }
 
-  getPasswordStrengthError(): string {
+  getPasswordStrengthError() {
     const control = this.signUpForm.get('password');
-    if (control?.errors?.['passwordStrength']) {
-      const strength = control.errors['passwordStrength'];
-      if (!strength.hasLowerCase) return 'Password must contain at least one lowercase letter';
-      if (!strength.hasUpperCase) return 'Password must contain at least one uppercase letter';
-      if (!strength.hasNumeric) return 'Password must contain at least one number';
-      if (!strength.hasSpecialChar) return 'Password must contain at least one special character';
-    }
-    return '';
+    this.formService.getPasswordStrengthError(control)
   }
 
   signup() {

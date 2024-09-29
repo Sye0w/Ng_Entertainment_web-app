@@ -137,55 +137,7 @@ section{
       gap: 1.5rem;
       list-style-type: none;
       flex-wrap: wrap;
-      li{
-        @include flex-column-container;
-        overflow: hidden;
-
-        .overlay{
-          height: 11.125rem !important;
-        }
-
-        @include overlay();
-        .media-tick{
-          @include circular-element;
-        }
-
-        #img{
-          border-radius: .5rem;
-          @include cover-background;
-        }
-      }
-      .media-info{
-        .trend-title{
-          display: flex;
-          align-items: center;
-          gap: .5rem;
-          font-size: .9375rem !important;
-          div{
-            display: flex;
-            gap: 0.25rem;
-            align-items: center;
-
-            img{
-              width: .75rem;
-              height: .75rem;
-            }
-          }
-
-          .circle{
-            @include  circle
-          }
-          // svg
-        }
-
-        h4{
-          font-size: 1.125rem;
-          font-weight: 500;
-        }
-      }
-      h4{
-        font-weight: 300;
-      }
+      
     }
   }
 }
