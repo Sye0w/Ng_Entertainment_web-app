@@ -94,6 +94,8 @@ section{
 
 @media (max-width: 425px){
   section{
+    // justify-content: center;
+    // gap: 3rem;
     border-radius: 0;
     .logos{
       padding-left: 1rem;
@@ -108,6 +110,12 @@ section{
         }
        }
       }
+    }
+
+    .user-profile{
+      position: relative;
+      right: 18rem;
+      // left: 15rem !important;
     }
   }
 }

@@ -57,8 +57,9 @@ div{
 
 @media (max-width: 425px){
   ul{
-    gap: 1.5rem !important;
+    column-gap: .0125rem !important;
     display: grid !important;
+    row-gap: 2rem !important;
     grid-template-columns: repeat(2, 1fr);
   }
 }
