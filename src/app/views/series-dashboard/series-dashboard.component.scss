@@ -35,7 +35,26 @@ section{
       display: none;
     }
 
-    
+
   }
 
+}
+
+
+@media(max-width: 768px){
+  ul{
+    gap: 1.5rem !important;
+    display: grid !important;
+
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (max-width: 425px){
+  ul{
+    gap: 1.5rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

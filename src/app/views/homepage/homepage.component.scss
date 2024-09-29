@@ -21,6 +21,18 @@ main{
   main{
     flex-direction: column;
     padding-right: 2rem;
+
+    section{
+      width: 100%;
+      display: flex;
+      justify-content: center !important;
+
+      // border: 2px solid ;
+
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 8rem;
+    }
   }
 }
 

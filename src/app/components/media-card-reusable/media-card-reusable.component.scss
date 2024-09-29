@@ -57,3 +57,27 @@ li{
   }
 
 }
+
+
+@media(max-width: 768px){
+  li{
+   width: 13.75rem;
+   height: 12rem;
+
+   .media-tick{
+    margin-left: 11.25rem;
+   }
+  }
+}
+
+
+@media(max-width: 425px){
+  li{
+    width: 10.25rem;
+    height: 9.625rem;
+
+    .media-tick{
+      margin-left: 7.5rem;
+    }
+  }
+}

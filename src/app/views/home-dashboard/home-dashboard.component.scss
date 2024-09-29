@@ -137,9 +137,23 @@ section{
       gap: 1.5rem;
       list-style-type: none;
       flex-wrap: wrap;
-      
+
     }
   }
 }
 
 
+
+@media(max-width: 768px){
+  section{
+    display: grid !important;
+
+    .recommended{
+
+      ul{
+        // gap: 1.5rem !important;
+       
+      }
+    }
+  }
+}
