@@ -36,7 +36,7 @@ export class FormService {
     return '';
   }
 
-  pswdStr(control: AbstractControl): ValidationErrors | null {
+  pswdStr(control: AbstractControl) {
     const value: string = control.value || '';
     const hasLowerCase = /[a-z]/.test(value);
     const hasUpperCase = /[A-Z]/.test(value);

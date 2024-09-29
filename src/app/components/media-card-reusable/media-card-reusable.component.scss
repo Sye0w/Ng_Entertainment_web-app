@@ -1,0 +1,59 @@
+@use '../../../partials/mixins' as *;
+@use '../../../partials/variables' as *;
+
+li{
+  @include flex-column-container;
+
+  .overlay{
+    height: 11.125rem !important;
+  }
+  @include overlay();
+
+  #img{
+    border-radius: .5rem;
+    @include cover-background;
+  }
+
+  .media-info{
+    display: flex;
+    flex-direction: column;
+
+
+    .trend-title{
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+
+      .circle{
+        width: .1875rem;
+        height: .1875rem;
+        border-radius: 50%;
+        background-color: $white;
+      }
+
+      div{
+        display: flex;
+        gap: 0.25rem;
+        align-items: center;
+
+        img{
+          width: .75rem;
+          height: .75rem;
+        }
+      }
+
+    }
+    h4{
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+  }
+
+  .media-tick{
+    top: .875rem;
+    margin-left: 13.75rem;
+    position: absolute;
+    @include circular-element;
+  }
+
+}

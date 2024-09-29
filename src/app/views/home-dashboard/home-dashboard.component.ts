@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MediaFacadeService } from '../../services/media-facade.service';
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from "../../components/not-found/not-found.component";
+import { MediaCardReusableComponent } from "../../components/media-card-reusable/media-card-reusable.component";
 
 
 @Component({
   selector: 'app-home-dashboard',
   standalone: true,
-  imports: [CommonModule, NotFoundComponent],
+  imports: [CommonModule, NotFoundComponent, MediaCardReusableComponent],
   templateUrl: './home-dashboard.component.html',
   styleUrl: './home-dashboard.component.scss'
 })

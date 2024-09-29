@@ -4,11 +4,12 @@ import { map, Observable, tap } from 'rxjs';
 import { IMediaItem } from '../../store/media.interface';
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from "../../components/not-found/not-found.component";
+import { MediaCardReusableComponent } from "../../components/media-card-reusable/media-card-reusable.component";
 
 @Component({
   selector: 'app-bookmarked-dashboard',
   standalone: true,
-  imports: [CommonModule, NotFoundComponent],
+  imports: [CommonModule, NotFoundComponent, MediaCardReusableComponent],
   templateUrl: './bookmarked-dashboard.component.html',
   styleUrl: './bookmarked-dashboard.component.scss'
 })
