@@ -56,10 +56,10 @@
       <div class="recommended">
         <h3>Recommended for you</h3>
         <ul class="medias">
-            @for(movie of medias; track movie.title; let i = $index){
-              <app-media-card-reusable [media]="movie"/>
-            }
-          </ul>
+          @for(movie of medias; track movie.title; let i = $index){
+            <app-media-card-reusable [media]="movie"/>
+          }
+        </ul>
       </div>
     } @else {
       <app-not-found [category]="'homepage'"/>

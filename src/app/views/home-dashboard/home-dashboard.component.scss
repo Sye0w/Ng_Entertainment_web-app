@@ -146,13 +146,32 @@ section{
 
 @media(max-width: 768px){
   section{
-    display: grid !important;
+    margin-left: 1.25rem;
+
+    // margin-left: 15rem;
+    .trends{
+      ul{
+        max-width: 48.125rem;
+        // flex-direction: column;
+        overflow-x: scroll;
+        margin-right: 0;
+        li{
+          width: 28.375rem;
+          height: 14.375rem;
+        }
+      }
+    }
+
 
     .recommended{
 
+
       ul{
-        // gap: 1.5rem !important;
-       
+        // gap: 1rem !important;
+        column-gap: .0125rem !important;
+        display: grid !important;
+        row-gap: 2rem !important;
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }
