@@ -253,7 +253,9 @@
   overflow: hidden;
 
   &:hover {
-    color: $mirage !important;
+    p{
+      color: $mirage !important;
+    }
   }
 
   p {

@@ -27,7 +27,7 @@ The route configuration utilizes lazy loading in several places:
 ### Analysis of the Route Configuration
 
 1. **Auth Routes**: 
-   - The login component is eagerly loaded, which is appropriate as it's likely to be one of the first components users interact with.
+   - The login component is eagerly loaded, which is appropriate as is the first components users interact with.
    - The sign-up component is lazy-loaded, which is a good strategy if sign-ups are less frequent than logins.
 
 2. **Main App Routes**:
@@ -75,6 +75,16 @@ With the approach of template optimization, asyncpipe together with conditional 
 ### Analysis of Components with template optimization and AsyncPipe
 
 1. Application components uses templates with conditional rendering and asyncpipes for sections of the template that heavliy relies on rendering content asynchronously and conditionally thereby minimizes rendering time for templates or components.
+
+## The use of Lighthouse for performance profiling:
+
+1. Performance profile for Ng Entertainement Web App scores added in this path:
+  './Performance_Reports/'
+
+## The use of PageSpeed for performance profiling
+
+
+
 
 ## Conclusion
 The NgEntertainment Web App illustrates some common performance optimization techniques in Angular:
