@@ -82,8 +82,8 @@ The NgEntertainment Web App illustrates some common performance optimization tec
 1. Lazy loading of routes and components, which significantly reduces initial load time and improves application startup performance.
    
 2. Use of ChangeDetectionStrategy.OnPush and AsyncPipe in the navbar component, which optimizes change detection and improves overall application responsiveness.
-3. 
-4. Template optimization through conditional rendering and AsyncPipe, which minimizes expensive DOM updates and enhances rendering performance.
+  
+3. Template optimization through conditional rendering and AsyncPipe, which minimizes expensive DOM updates and enhances rendering performance.
 
 The above techniques collectively contribute to an overall application performance gains and enhanced metrics.
 
