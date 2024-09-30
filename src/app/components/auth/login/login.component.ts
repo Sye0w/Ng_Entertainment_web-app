@@ -7,6 +7,7 @@ import { FormService } from '../../../services/form.service';
 import { AuthService } from '../../../services/auth.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { dotStream } from 'ldrs'
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ import { ToastModule } from 'primeng/toast';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  isLoading: boolean = false;
 
   constructor(
     private validation: FormService,
@@ -29,6 +31,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.initializeLoginForm();
+    dotStream.register();
   }
 
   initializeLoginForm() {
@@ -73,10 +76,14 @@ export class LoginComponent implements OnInit {
           this.messageService.add({
             severity: 'success',
             summary: 'Login Successful',
-            detail: 'You have been logged in successfully.'
+            detail: 'You have been logged in successfully.',
+            life: 2000
           });
           localStorage.setItem('token', response.token);
-          this.router.navigate(['/app/home']);
+          setTimeout(() => {
+            this.router.navigate(['/app/home']);
+          },2500)
+
         },
         error: (error) => {
           this.messageService.add({
