@@ -77,5 +77,13 @@ With the approach of template optimization, asyncpipe together with conditional 
 1. Application components uses templates with conditional rendering and asyncpipes for sections of the template that heavliy relies on rendering content asynchronously and conditionally thereby minimizes rendering time for templates or components.
 
 ## Conclusion
+The NgEntertainment Web App illustrates some common performance optimization techniques in Angular:
 
+1. Lazy loading of routes and components, which significantly reduces initial load time and improves application startup performance.
+   
+2. Use of ChangeDetectionStrategy.OnPush and AsyncPipe in the navbar component, which optimizes change detection and improves overall application responsiveness.
+3. 
+4. Template optimization through conditional rendering and AsyncPipe, which minimizes expensive DOM updates and enhances rendering performance.
+
+The above techniques collectively contribute to an overall application performance gains and enhanced metrics.
 
