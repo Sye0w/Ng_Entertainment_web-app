@@ -1,14 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { Component,ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MediaFacadeService } from '../../services/media-facade.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule,AsyncPipe],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class NavbarComponent {
